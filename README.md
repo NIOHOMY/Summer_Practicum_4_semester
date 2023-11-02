@@ -1,8 +1,13 @@
 
-    1. Постановка задачи.
-С клавиатуры вводится информация об итогах последней экзаменационной сессии. Эта информация включает в себя: 1) целое число n – количество студентов; 2) n объединенных в структуру данных: 
+## 1. Постановка задачи.
+
+С клавиатуры вводится информация об итогах последней экзаменационной сессии. Эта информация включает в себя: 
+1) целое число n – количество студентов;
+2) 2) n объединенных в структуру данных:
+```
 <имя ><фамилия>  <оценка>  <оценка> <оценка>  <оценка> <оценка> , где <имя>, <фамилия> ― символьные строки, содержащие не более 20 
 символов, оценка за экзамен ― десятичная цифра из диапазона ‘2’..’5’. 
+```
 Требуется  
     1) создать текстовый файл из данных, введенных с клавиатуры;  
     2) из данных файла сформировать динамический список, каждый элемент которого содержит фамилию студента и его средний балл, причем вначале размещаются данные о студентах, сдавших все экзамены на «хорошо», затем об остальных студентах, при этом в каждой части данные следуют в порядке, обратном порядку следования данных при вводе с клавиатуры; вывести этот список на экран;  
@@ -18,6 +23,7 @@
 Связный список является базовой динамической структурой данных в информатике. Он состоит из узлов, которые содержат данные и ссылки на следующий и/или предыдущий узел списка.
 
 Двоичное дерево поиска - это особый тип двоичного дерева, который удовлетворяет определенным условиям. 
+
 - Оба поддерева (левое и правое) также являются двоичными деревьями поиска. 
 - Значения ключей данных для всех узлов левого поддерева меньше значения ключа данных самого узла X, а значения ключей данных для всех узлов правого поддерева больше либо равны значению ключа данных самого узла X.
 
@@ -26,129 +32,71 @@
 TXT - это текстовый формат обмена данными. Подобно другим текстовым форматам, TXT легко читается людьми.
 
 3. Описание решения поставленной задачи и способов вывода результатов.
+
 3.1. Описание данных и алгоритма решения задачи.
+
 StudentModel – основная структура студента содержащая Имя, Фамилию (не более 20 символов), оценки и средний балл.
 
 
 MainLIST – динамический связный список, информационная часть - StudentModel
+
 Используется для хранения и отображения всех текущих студентов, а так же для всех заданий.
 
 NewTasksStudentModel – структура студента, для заданий 2, 3, 4, 5 содержащая Фамилию (не более 20 символов), средний балл.
+
 DynamicLIST - динамический связный список, аналогичный MainLIST, однако информационная часть – NewTasksStudentModel. Используется в заданиях 2, 3
 
 TopStudentsModel – структура студента, для задания 6, содержащая Фамилию (не более 20 символов), все оценки.
+
 TopLIST - динамический связный список, аналогичный MainLIST, однако информационная часть – TopStudentsModel. Используется в задании 6.
 
 
 Основные функции списка MainLIST: 
-get_head() 
-get_tail()
-get_size() 
-add_to_head(TInfo elem) 
-add_to_tail(TInfo elem) 
-add_after(MainptrNODE ptr, TInfo elem) 
-del_from_head()
-del_after(MainptrNODE ptr)
 
-Их реализация представлена блок схемами:
-
-get_head() 
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/46992714-613f-4537-96f7-f12fe3b911cb)
-
-get_tail()
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/7a9371f0-f5ea-4128-a33f-c39318de717b)
-
-get_size() 
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/f0b790f3-79df-4b56-aa14-7af1d6569a64)
-
-add_to_head(TInfo elem) 
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/3eebda85-fb09-4f90-86e4-95714bb93696)
-
-void adding_by_pointer(MainptrNODE%ptr, TInfo% elem)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/2a9466e8-9542-400f-990c-dffcdbca0ed0)
-
-add_to_tail(TInfo elem) 
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/69d31ca9-9eb2-4522-ac73-7a7d8f83ed2e)
-
-add_after(MainptrNODE ptr, TInfo elem) 
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/3465ea5f-2271-44f2-9f5c-52962312cb4a)
-
-del_from_head()
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/5e1438c9-3438-4dfe-91cc-7920b9950bf4)
-
-void deleting_by_pointer(MainptrNODE% ptr)
- удаление p
- ![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/60804183-5b56-4a70-83a2-dddfafb5ab2a)
-
-del_after(MainptrNODE ptr)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/afb3c319-573d-4571-9258-2c3cab5525f7)
-
-
+* get_head() 
+* get_tail()
+* get_size() 
+* add_to_head(TInfo elem) 
+* add_to_tail(TInfo elem) 
+* add_after(MainptrNODE ptr, TInfo elem) 
+* del_from_head()
+* del_after(MainptrNODE ptr)
 
 BSTree - Двоичное дерево поиска, информационная часть – NewTasksStudentModel. Используется в задании 4.
+
 Основные функции:
-BSTNODE^ getRoot()
-void insert( TBST% d)
-bool remove( TBST% d);
+
+* BSTNODE^ getRoot()
+* void insert( TBST% d)
+* bool remove( TBST% d);
 
 Вспомогательные:
-bool insertHelper(BSTNODE^% p_node,  TBST% elem);
-	bool removeHelper(BSTNODE^% p_node, TBST elem);
 
-Их реализация представлена блок схемами:
-BSTNODE^ getRoot()
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/2ca75182-21dc-4eff-9c32-6f1b66336216)
-
-void insert( TBST% d)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/dbfeb58c-7afa-4d35-b853-ef3ec6bdebdc)
-
-bool remove( TBST% d);
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/807f1602-5673-4d42-92be-670b78a5c660)
-
-bool insertHelper(BSTNODE^% p_node,  TBST% elem);
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/8a0d1d06-3218-4472-a155-f958087379f2)
-
-data (elem <= p_node->data)
-	bool removeHelper(BSTNODE^% p_node, TBST elem);
- ![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/eef77f65-64f4-4508-9f94-b71c8ff412af)
-
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/c2d366db-8deb-4b91-9836-ac173d6a4deb)
+* bool insertHelper(BSTNODE^% p_node,  TBST% elem);
+* bool removeHelper(BSTNODE^% p_node, TBST elem);
 
 
 AVLTree - сбалансированное по высоте двоичное дерево поиска, информационная часть – NewTasksStudentModel. 
+
 Используется в задании 5.
+
 Основные функции:
-AVLTreeNode^ getRoot();
-	void Insert(AVLTInfo);
-bool Delete(AVLTInfo);
+* AVLTreeNode^ getRoot();
+* void Insert(AVLTInfo);
+* bool Delete(AVLTInfo);
 
 Вспомогательные:
-AVLTreeNode^ LeftRotate(AVLTreeNode^);
-AVLTreeNode^ LeftAndRightRotate(AVLTreeNode^);
-AVLTreeNode^ RightRotate(AVLTreeNode^);
-AVLTreeNode^ RightAndLeftRotate(AVLTreeNode^);
-	int GetHeight(AVLTreeNode^);
+* AVLTreeNode^ LeftRotate(AVLTreeNode^);
+* AVLTreeNode^ LeftAndRightRotate(AVLTreeNode^);
+* AVLTreeNode^ RightRotate(AVLTreeNode^);
+* AVLTreeNode^ RightAndLeftRotate(AVLTreeNode^);
+* int GetHeight(AVLTreeNode^);
 
-Их реализация представлена блок схемами и псевдокодом:
-AVLTreeNode^ getRoot();
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/c0196441-1c47-4b03-8d2b-630db42bb26c)
-
-	void Insert(AVLTInfo);
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/b7eff2cc-cf95-4e3d-924a-7eeeab73a129)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/5281e535-4dc0-4f0c-86bb-6304eb19dccd)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/d9d4a2bf-276a-44a4-a348-b5ec37bd7b84)
-
-
-bool Delete(AVLTInfo);
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/732de86c-adb5-4092-ad4d-b748b8b45470)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/cad14bf2-a3f9-44c9-a47c-ce680964d60e)
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/843dd54f-e79e-4768-86d2-5788d8da3013)
-
-
-
+Реализация некоторых представлена псевдокодом:
 
 AVLTreeNode^ LeftRotate(AVLTreeNode^);
 Псевдокод: 
+```
 //------------------------------------//
 функция LeftRotate(tempNode):
     lChildNode = tempNode.rightChild.leftChild
@@ -164,15 +112,20 @@ AVLTreeNode^ LeftRotate(AVLTreeNode^);
     
     вернуть newRoot
 //------------------------------------//
+```
+
 AVLTreeNode^ LeftAndRightRotate(AVLTreeNode^);
 Псевдокод: 
+```
 //------------------------------------//
 функция LeftAndRightRotate(tempNode):
     tempNode.leftChild = LeftRotate(tempNode.leftChild)
     вернуть RightRotate(tempNode)
 //------------------------------------//
+```
 AVLTreeNode^ RightRotate(AVLTreeNode^);
 Псевдокод: 
+```
 //------------------------------------//
 функция RightRotate(tempNode):
     rChildNode = tempNode.leftChild.rightChild
@@ -188,29 +141,35 @@ AVLTreeNode^ RightRotate(AVLTreeNode^);
     
     вернуть newRoot
 //------------------------------------//
+```
 AVLTreeNode^ RightAndLeftRotate(AVLTreeNode^);
 Псевдокод: 
+```
 //------------------------------------//
 функция RightAndLeftRotate(tempNode):
     tempNode.rightChild = RightRotate(tempNode.rightChild)
     вернуть LeftRotate(tempNode)
 	int GetHeight(AVLTreeNode^);
-![image](https://github.com/NIOHOMY/Summer_Practicum_4_semester/assets/38347892/20b4a53f-6675-48ea-9106-07137f2f9fee)
 
 //------------------------------------//
-
+```
 Задача 1:
+
 Реализована функциями:
-void readData(std::string %data_file_name, MainLIST^% main_list, int% number_students)
+
+* void readData(std::string %data_file_name, MainLIST^% main_list, int% number_students)
 открывает файл и считывает все данные в main_list
-void saveData(std::string %out_data_file_name, MainLIST^% main_list)
+* void saveData(std::string %out_data_file_name, MainLIST^% main_list)
 сохраняет все данные из main_list в txt файл
-System::Void CppCLR_WinformsProjekt1::AddStudentForm::NewStudentSaveBtn_Click(System::Object^ sender, System::EventArgs^ e)
+* System::Void CppCLR_WinformsProjekt1::AddStudentForm::NewStudentSaveBtn_Click(System::Object^ sender, System::EventArgs^ e)
 Через форму регистрации добавляет студента в main_list 
 
 Псевдокод функций:
+
 void readData(std::string %data_file_name, MainLIST^% main_list, int% number_students)
+
 Псевдокод: 
+```
 //------------------------------------//
 
 функция readData(строка& data_file_name, MainLIST^& main_list, целое число& number_students):
@@ -226,9 +185,10 @@ void readData(std::string %data_file_name, MainLIST^% main_list, int% number_stu
 
     закрыть_файл(file)
 //------------------------------------//
-
+```
 void saveData(std::string %out_data_file_name, MainLIST^% main_list)
 Псевдокод: 
+```
 //------------------------------------//
 
 функция saveData(строка& out_data_file_name, MainLIST^& main_list):
@@ -245,9 +205,10 @@ void saveData(std::string %out_data_file_name, MainLIST^% main_list)
 
     закрыть_файл(out_file)
 //------------------------------------//
-
+```
 System::Void CppCLR_WinformsProjekt1::AddStudentForm::NewStudentSaveBtn_Click(System::Object^ sender, System::EventArgs^ e)
 Псевдокод: 
+```
 //------------------------------------//
 функция ParseString(строка input):
     // Создаем регулярное выражение для поиска цифр от 2 до 5
@@ -292,12 +253,15 @@ System::Void CppCLR_WinformsProjekt1::AddStudentForm::NewStudentSaveBtn_Click(Sy
 
     вернуть
 //------------------------------------//
-
+```
 Задача 2:
+
 Реализована функцией:
 
 void task1(MainLIST^% list, DynamicLIST %list1)
+
 Псевдокод: 
+```
 //------------------------------------//
 функция task1(MainLIST^& list, DynamicLIST& list1):
     лямбда-функция check(S: StudentModel):
@@ -334,12 +298,15 @@ void task1(MainLIST^% list, DynamicLIST %list1)
     освободить память p_last_checked
 
 //------------------------------------//
-
+```
 Задача 3:
+
 Реализована функцией:
 
 void task2(MainLIST^% list, DynamicLIST% list2)
+
 Псевдокод: 
+```
 //------------------------------------//
 функция task2(MainLIST^& list, DynamicLIST& list2):
     лямбда-функция check(student1: NewTasksStudentModel, student2: NewTasksStudentModel):
@@ -378,12 +345,15 @@ void task2(MainLIST^% list, DynamicLIST% list2)
     освободить память p_main_list
 
 //------------------------------------//
-
+```
 Задача 4:
+
 Реализована функцией:
 
 void task3(MainLIST^% list, BSTree% tree)
+
 Псевдокод: 
+```
 //------------------------------------//
 функция task3(MainLIST^& list, BSTree& tree):
     MainptrNODE p_main_list = list->get_head()
@@ -400,13 +370,15 @@ void task3(MainLIST^% list, BSTree% tree)
     освободить память p_main_list
 
 //------------------------------------//
-
+```
 Задача 5:
+
 Реализована функцией:
 
-
 void task4(MainLIST^% list, AVLTree% tree)
+
 Псевдокод: 
+```
 //------------------------------------//
 функция task4(MainLIST^& list, AVLTree& tree):
     MainptrNODE p_main_list = list->get_head()
@@ -423,13 +395,15 @@ void task4(MainLIST^% list, AVLTree% tree)
     освободить память p_main_list
 
 //------------------------------------//
-
+```
 Задача 6:
+
 Реализована функцией:
 
-
 void task5(MainLIST^% list, TopLIST% list3)
+
 Псевдокод: 
+```
 //------------------------------------//
 функция task5(MainLIST^& list, TopLIST& list3):
     вещественное число max_average_score = 2
@@ -454,7 +428,7 @@ void task5(MainLIST^% list, TopLIST% list3)
 
     освободить память p_main_list
 //------------------------------------//
-
+```
 3.2. Описание структуры программы.
     • К решению первой задачи относятся следующие классы: MainLIST, StudentModel .
     • К решению второй задачи относятся следующие классы: MainLIST, StudentModel, NewTasksStudentModel, DynamicLIST.
@@ -505,4 +479,4 @@ void task5(MainLIST^% list, TopLIST% list3)
 - Понимание принципов безопасности приложений и защиты данных пользователя.
 - Умение создавать удобный и интуитивно понятный интерфейс пользователя.
 - Навыки командной работы, коллаборации и документирования кода.
-    5. Приложение.
+    5. Приложение-проект
