@@ -1,4 +1,5 @@
-
+![gif](https://github.com/NIOHOMY/Summer_Practicum_4_semester/raw/master/view.gif)
+![gif](https://github.com/NIOHOMY/Summer_Practicum_4_semester/raw/master/BST.gif)
 ## 1. Постановка задачи.
 
 С клавиатуры вводится информация об итогах последней экзаменационной сессии. Эта информация включает в себя: 
